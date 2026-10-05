@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Court Cards: coleção acadêmica de cartas de basquete inspirada em TCG e NBA 2K.">
+  <title>Meu time | Court Cards</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <!-- BLOCO: CABECALHO — identificação e navegação entre as páginas. -->
+  <header class="cabecalho">
+    <div class="container barra">
+      <a class="marca" href="../index.html"><span class="bola" aria-hidden="true">◉</span> COURT<span>CARDS</span></a>
+      <nav aria-label="Navegação principal"><a href="../index.html">Início</a><a href="catalogo.html">Catálogo</a><a href="meu-time.html" aria-current="page">Meu time</a><a href="login.html">Entrar / Cadastrar</a></nav>
+    </div>
+  </header>
+  <main id="conteudo" class="container">
+<header class="titulo-pagina"><p class="sobretitulo">SUA ESCALAÇÃO</p><h1>Meu time</h1><p>Cinco posições. Cinco jogadores. Um quinteto para chamar de seu.</p></header>
+    <aside class="aviso"><strong>Time de exemplo</strong><p>Esta escalação representa um time pré-montado pelo usuário. Na Etapa 1 ela é estática; as escolhas no formulário ainda não atualizam ou salvam o time.</p></aside>
+    <!-- BLOCO: TIME — tabela de titulares e resumo estático. -->
+    <section class="secao" aria-labelledby="nome-time"><div class="secao-topo"><div><p class="sobretitulo">QUINTETO TITULAR</p><h2 id="nome-time">Court Stars</h2></div><span class="selo">5 / 5 JOGADORES</span></div>
+      <div class="tabela"><table><caption>Escalação de exemplo do Court Stars</caption><thead><tr><th scope="col">Posição</th><th scope="col">Jogador</th><th scope="col">Geral</th><th scope="col">Ação prevista</th></tr></thead><tbody><tr><th scope="row">Armador (PG)</th><td><a href="detalhes.html#curry">Stephen Curry</a></td><td>96</td><td><button type="button" disabled aria-label="Remover Stephen Curry do time">Remover</button></td></tr><tr><th scope="row">Ala-armador (SG)</th><td><a href="detalhes.html#derozan">DeMar DeRozan</a></td><td>88</td><td><button type="button" disabled aria-label="Remover DeMar DeRozan do time">Remover</button></td></tr><tr><th scope="row">Ala (SF)</th><td><a href="detalhes.html#durant">Kevin Durant</a></td><td>96</td><td><button type="button" disabled aria-label="Remover Kevin Durant do time">Remover</button></td></tr><tr><th scope="row">Ala-pivô (PF)</th><td><a href="detalhes.html#zion">Zion Williamson</a></td><td>89</td><td><button type="button" disabled aria-label="Remover Zion Williamson do time">Remover</button></td></tr><tr><th scope="row">Pivô (C)</th><td><a href="detalhes.html#jokic">Nikola Jokić</a></td><td>95</td><td><button type="button" disabled aria-label="Remover Nikola Jokić do time">Remover</button></td></tr></tbody></table></div>
+    </section>
+    <!-- BLOCO: EDITAR-TIME -->
+    <section class="painel" aria-labelledby="editar-time"><h2 id="editar-time">Escolha seus titulares</h2><form>
+      <label for="nome-equipe">Nome do time</label><input id="nome-equipe" name="nome-equipe" type="text" value="Court Stars" maxlength="40" required>
+      <div class="duas-colunas"><div><label for="titular-PG">Armador (PG)</label><select id="titular-PG" name="titular-PG"><option value="curry" selected>Stephen Curry</option><option value="doncic">Luka Dončić</option><option value="lillard">Damian Lillard</option><option value="trae">Trae Young</option><option value="lonzo">Lonzo Ball</option><option value="westbrook">Russell Westbrook</option></select></div><div><label for="titular-SG">Ala-armador (SG)</label><select id="titular-SG" name="titular-SG"><option value="derozan" selected>DeMar DeRozan</option></select></div><div><label for="titular-SF">Ala (SF)</label><select id="titular-SF" name="titular-SF"><option value="durant" selected>Kevin Durant</option><option value="tatum">Jayson Tatum</option></select></div><div><label for="titular-PF">Ala-pivô (PF)</label><select id="titular-PF" name="titular-PF"><option value="zion" selected>Zion Williamson</option></select></div><div><label for="titular-C">Pivô (C)</label><select id="titular-C" name="titular-C"><option value="jokic" selected>Nikola Jokić</option><option value="adams">Steven Adams</option></select></div></div>
+      <label for="estrategia">Estratégia</label><textarea id="estrategia" name="estrategia" rows="3">Circulação de bola, arremessos de longa distância e presença no garrafão.</textarea>
+      <div class="botoes"><button type="button" disabled>Salvar time — em breve</button><a href="catalogo.html">Consultar catálogo →</a></div>
+    </form></section>
+    <aside class="painel secao"><h2>Entenda as posições</h2><ul><li><strong>PG — Armador:</strong> organiza as jogadas.</li><li><strong>SG — Ala-armador:</strong> ajuda na criação e nos arremessos.</li><li><strong>SF — Ala:</strong> combina ataque e defesa.</li><li><strong>PF — Ala-pivô:</strong> atua próximo ao garrafão.</li><li><strong>C — Pivô:</strong> disputa rebotes e protege a cesta.</li></ul></aside>
+
+  </main>
+  <!-- BLOCO: RODAPE -->
+  <footer class="rodape"><div class="container barra">
+    <p><strong>COURT CARDS</strong><br>Projeto acadêmico • Etapa 1 — HTML</p>
+    <p>Imagens de NBA 2K22. Atributos didáticos fictícios.<br><a href="creditos.html">Créditos e fontes</a> · <a href="../GUIA-DE-COMMITS.md">Guia de commits</a></p>
+  </div></footer>
+</body>
+</html>
