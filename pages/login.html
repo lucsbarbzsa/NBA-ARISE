@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NBA ARISE: coleção acadêmica de cartas de basquete inspirada em TCG e NBA 2K.">
+  <title>Login e cadastro | NBA ARISE</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <!-- BLOCO: CABECALHO — identificação e navegação entre as páginas. -->
+  <header class="cabecalho">
+    <div class="container barra">
+      <a class="marca" href="../index.html"><span class="bola" aria-hidden="true">◉</span> NBA <span>ARISE</span></a>
+      <nav aria-label="Navegação principal"><a href="../index.html">Início</a><a href="catalogo.html">Catálogo</a><a href="meutime.html">Meu time</a><a href="cadastro-carta.html">Nova carta</a><a href="login.html" aria-current="page">Entrar / Cadastrar</a></nav>
+    </div>
+  </header>
+  <main id="conteudo" class="container">
+<header class="titulo-pagina"><p class="sobretitulo">ÁREA DO COLECIONADOR</p><h1>Seu lugar na coleção</h1><p>Entre na sua conta ou comece sua coleção de cartas.</p></header>
+    <aside class="aviso" id="aviso-conta"><strong>Demonstração acadêmica</strong><p>Os formulários são apenas visuais: não criam contas, não autenticam e não enviam dados. Use somente dados fictícios para testar o preenchimento.</p></aside>
+    <div class="duas-colunas secao">
+      <!-- BLOCO: LOGIN -->
+      <section class="painel" aria-labelledby="entrar"><h2 id="entrar">Já tenho uma conta</h2><form aria-describedby="aviso-conta">
+        <label for="email-login">E-mail</label><input id="email-login" name="email-login" type="email" autocomplete="username" placeholder="voce@exemplo.com" required>
+        <label for="senha-login">Senha</label><input id="senha-login" name="senha-login" type="password" autocomplete="current-password" minlength="8" required>
+        <button type="button" disabled>Entrar — em breve</button>
+        <p class="ajuda">Ainda não tem conta? <a href="#cadastrar">Ir para o cadastro</a></p>
+      </form></section>
+      <!-- BLOCO: CADASTRO-USUARIO -->
+      <section class="painel" aria-labelledby="cadastrar"><h2 id="cadastrar">Criar minha conta</h2><form aria-describedby="aviso-conta">
+        <label for="nome">Nome do colecionador</label><input id="nome" name="nome" type="text" autocomplete="nickname" maxlength="60" required>
+        <label for="email-cadastro">E-mail</label><input id="email-cadastro" name="email-cadastro" type="email" autocomplete="email" required>
+        <label for="senha-cadastro">Senha (mínimo de 8 caracteres)</label><input id="senha-cadastro" name="senha-cadastro" type="password" autocomplete="new-password" minlength="8" required>
+        <label for="confirmar-senha">Confirmar senha</label><input id="confirmar-senha" name="confirmar-senha" type="password" autocomplete="new-password" minlength="8" required>
+        <button type="button" disabled>Criar conta — em breve</button>
+        <p class="ajuda">Já tem conta? <a href="#entrar">Ir para o login</a></p>
+      </form></section>
+    </div>
+
+  </main>
+  <!-- BLOCO: RODAPE -->
+  <footer class="rodape"><div class="container barra">
+    <p><strong>NBA ARISE</strong><br>Projeto acadêmico • Etapa 1 — HTML</p>
+    <p>Imagens de NBA 2K22. Atributos didáticos fictícios.<br><a href="creditos.html">Créditos e fontes</a></p>
+  </div></footer>
+</body>
+</html>
