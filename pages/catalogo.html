@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NBA ARISE: coleção acadêmica de cartas de basquete inspirada em TCG e NBA 2K.">
+  <title>Catálogo | NBA ARISE</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <!-- BLOCO: CABECALHO — identificação e navegação entre as páginas. -->
+  <header class="cabecalho">
+    <div class="container barra">
+      <a class="marca" href="../index.html"><span class="bola" aria-hidden="true">◉</span> NBA <span>ARISE</span></a>
+      <nav aria-label="Navegação principal"><a href="../index.html">Início</a><a href="catalogo.html" aria-current="page">Catálogo</a><a href="meutime.html">Meu time</a><a href="cadastro-carta.html">Nova carta</a><a href="login.html">Entrar / Cadastrar</a></nav>
+    </div>
+  </header>
+  <main id="conteudo" class="container">
+<header class="titulo-pagina"><p class="sobretitulo">COLEÇÃO 01</p><h1>Catálogo de cartas</h1><p>Doze jogadores, diferentes estilos. Conheça os atributos de cada carta.</p></header>
+    <!-- BLOCO: PESQUISA — controles previstos, sem processamento nesta etapa. -->
+    <section class="painel" aria-labelledby="busca"><div class="secao-topo"><h2 id="busca">Encontre sua próxima carta</h2><a href="cadastro-carta.html">+ Cadastrar carta</a></div>
+      <p id="aviso-busca" class="ajuda">Pesquisa, filtros, ordenação e exclusão são demonstrativos nesta etapa: os controles aparecem, mas ainda não alteram a lista. O botão Editar abre a página de edição de exemplo.</p>
+      <form class="filtros" role="search" aria-describedby="aviso-busca">
+        <div><label for="pesquisa">Nome do jogador</label><input type="search" id="pesquisa" name="pesquisa" placeholder="Ex.: Stephen Curry"></div>
+        <div><label for="posicao">Posição</label><select id="posicao" name="posicao"><option value="">Todas as posições</option><option value="PG">Armador (PG)</option><option value="SG">Ala-armador (SG)</option><option value="SF">Ala (SF)</option><option value="PF">Ala-pivô (PF)</option><option value="C">Pivô (C)</option></select></div>
+        <div><label for="equipe">Equipe</label><select id="equipe" name="equipe"><option value="">Todas as equipes</option><option>Atlanta Hawks</option><option>Boston Celtics</option><option>Brooklyn Nets</option><option>Chicago Bulls</option><option>Dallas Mavericks</option><option>Denver Nuggets</option><option>Golden State Warriors</option><option>Los Angeles Lakers</option><option>Memphis Grizzlies</option><option>New Orleans Pelicans</option><option>Portland Trail Blazers</option></select></div>
+        <div><label for="faixa">Faixa de overall (GER)</label><select id="faixa" name="faixa"><option value="">Qualquer overall</option><option value="90-99">90 a 99</option><option value="80-89">80 a 89</option><option value="70-79">70 a 79</option><option value="0-69">Abaixo de 70</option></select></div>
+        <div><label for="ordem">Ordenar por</label><select id="ordem" name="ordem"><option value="colecao">Ordem da coleção</option><option value="nome">Nome do jogador</option><option value="overall">Overall (GER)</option></select></div>
+        <fieldset><legend>Direção da ordenação</legend><label><input type="radio" name="direcao" value="asc" checked> Crescente (A a Z ou menor overall primeiro)</label> <label><input type="radio" name="direcao" value="desc"> Decrescente (Z a A ou maior overall primeiro)</label></fieldset>
+        <div class="botoes"><button type="button" disabled>Aplicar — em breve</button><button type="reset" class="secundario">Limpar filtros</button></div>
+      </form>
+    </section>
+    <!-- BLOCO: LISTAGEM — as 12 cartas são dados estáticos no HTML. -->
+    <section class="secao" aria-labelledby="colecao"><div class="secao-topo"><h2 id="colecao">Todas as cartas</h2><span>12 cartas disponíveis</span></div>
+      <div class="grade-cartas">
+      <!-- CARTA 01: Stephen Curry — altere os dados neste article. -->
+      <article class="carta" id="carta-curry">
+        <div class="carta-topo"><span>PG · Armador</span><strong>96 <small>GER</small></strong></div>
+        <!-- Foto real (quando o arquivo existir): src="../assets/img/curry.jpg" alt="Stephen Curry no NBA 2K22" -->
+        <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20640%20360'%20width='640'%20height='360'%3E%3Crect%20width='640'%20height='360'%20fill='%23101826'/%3E%3Cg%20fill='none'%20stroke='%23ff7a1a'%20stroke-width='6'%3E%3Ccircle%20cx='320'%20cy='140'%20r='70'/%3E%3Cpath%20d='M250%20140h140M320%2070v140M270%2091q50%2049%200%2098M370%2091q-50%2049%200%2098'/%3E%3C/g%3E%3Ctext%20x='320'%20y='282'%20fill='%23ffffff'%20font-family='Arial,sans-serif'%20font-size='34'%20font-weight='700'%20text-anchor='middle'%3EStephen%20Curry%3C/text%3E%3Ctext%20x='320'%20y='320'%20fill='%239aa6b8'%20font-family='Arial,sans-serif'%20font-size='18'%20text-anchor='middle'%3EIMAGEM%20PROVIS%C3%93RIA%3C/text%3E%3C/svg%3E" alt="Imagem provisória da carta de Stephen Curry" width="640" height="360" loading="lazy">
+        <div class="carta-corpo"><p class="numero">COLEÇÃO 01 / CARTA 01</p><h3>Stephen Curry</h3><p class="clube">Golden State Warriors</p>
+          <dl class="stats"><div><dt>ARREMESSO</dt><dd>99</dd></div><div><dt>DEFESA</dt><dd>72</dd></div><div><dt>PASSE</dt><dd>94</dd></div><div><dt>VELOCIDADE</dt><dd>91</dd></div></dl>
+          <a class="link-detalhe" href="detalhes.html#curry">Ver detalhes <span aria-hidden="true">↗</span></a>
+          <div class="acoes"><button type="button" disabled>Adicionar ao time</button><a class="botao secundario" href="editar-carta.html?carta=curry" aria-label="Editar carta de Stephen Curry">Editar</a><button type="button" disabled aria-label="Excluir carta de Stephen Curry (indisponível nesta etapa)">Excluir</button></div>
+        </div>
+      </article>
+      <!-- CARTA 02: Kevin Durant — altere os dados neste article. -->
+      <article class="carta" id="carta-durant">
+        <div class="carta-topo"><span>SF · Ala</span><strong>96 <small>GER</small></strong></div>
+        <!-- Foto real (quando o arquivo existir): src="../assets/img/durant.jpg" alt="Kevin Durant no NBA 2K22" -->
+        <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20640%20360'%20width='640'%20height='360'%3E%3Crect%20width='640'%20height='360'%20fill='%23101826'/%3E%3Cg%20fill='none'%20stroke='%23ff7a1a'%20stroke-width='6'%3E%3Ccircle%20cx='320'%20cy='140'%20r='70'/%3E%3Cpath%20d='M250%20140h140M320%2070v140M270%2091q50%2049%200%2098M370%2091q-50%2049%200%2098'/%3E%3C/g%3E%3Ctext%20x='320'%20y='282'%20fill='%23ffffff'%20font-family='Arial,sans-serif'%20font-size='34'%20font-weight='700'%20text-anchor='middle'%3EKevin%20Durant%3C/text%3E%3Ctext%20x='320'%20y='320'%20fill='%239aa6b8'%20font-family='Arial,sans-serif'%20font-size='18'%20text-anchor='middle'%3EIMAGEM%20PROVIS%C3%93RIA%3C/text%3E%3C/svg%3E" alt="Imagem provisória da carta de Kevin Durant" width="640" height="360" loading="lazy">
+        <div class="carta-corpo"><p class="numero">COLEÇÃO 01 / CARTA 02</p><h3>Kevin Durant</h3><p class="clube">Brooklyn Nets</p>
+          <dl class="stats"><div><dt>ARREMESSO</dt><dd>96</dd></div><div><dt>DEFESA</dt><dd>85</dd></div><div><dt>PASSE</dt><dd>86</dd></div><div><dt>VELOCIDADE</dt><dd>85</dd></div></dl>
+          <a class="link-detalhe" href="detalhes.html#durant">Ver detalhes <span aria-hidden="true">↗</span></a>
+          <div class="acoes"><button type="button" disabled>Adicionar ao time</button><a class="botao secundario" href="editar-carta.html?carta=durant" aria-label="Editar carta de Kevin Durant">Editar</a><button type="button" disabled aria-label="Excluir carta de Kevin Durant (indisponível nesta etapa)">Excluir</button></div>
+        </div>
+      </article>
+      <!-- CARTA 03: Nikola Jokić — altere os dados neste article. -->
+      <article class="carta" id="carta-jokic">
+        <div class="carta-topo"><span>C · Pivô</span><strong>95 <small>GER</small></strong></div>
+        <!-- Foto real (quando o arquivo existir): src="../assets/img/jokic.jpg" alt="Nikola Jokić no NBA 2K22" -->
+        <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20640%20360'%20width='640'%20height='360'%3E%3Crect%20width='640'%20height='360'%20fill='%23101826'/%3E%3Cg%20fill='none'%20stroke='%23ff7a1a'%20stroke-width='6'%3E%3Ccircle%20cx='320'%20cy='140'%20r='70'/%3E%3Cpath%20d='M250%20140h140M320%2070v140M270%2091q50%2049%200%2098M370%2091q-50%2049%200%2098'/%3E%3C/g%3E%3Ctext%20x='320'%20y='282'%20fill='%23ffffff'%20font-family='Arial,sans-serif'%20font-size='34'%20font-weight='700'%20text-anchor='middle'%3ENikola%20Joki%C4%87%3C/text%3E%3Ctext%20x='320'%20y='320'%20fill='%239aa6b8'%20font-family='Arial,sans-serif'%20font-size='18'%20text-anchor='middle'%3EIMAGEM%20PROVIS%C3%93RIA%3C/text%3E%3C/svg%3E" alt="Imagem provisória da carta de Nikola Jokić" width="640" height="360" loading="lazy">
+        <div class="carta-corpo"><p class="numero">COLEÇÃO 01 / CARTA 03</p><h3>Nikola Jokić</h3><p class="clube">Denver Nuggets</p>
+          <dl class="stats"><div><dt>ARREMESSO</dt><dd>88</dd></div><div><dt>DEFESA</dt><dd>83</dd></div><div><dt>PASSE</dt><dd>95</dd></div><div><dt>VELOCIDADE</dt><dd>68</dd></div></dl>
+          <a class="link-detalhe" href="detalhes.html#jokic">Ver detalhes <span aria-hidden="true">↗</span></a>
+          <div class="acoes"><button type="button" disabled>Adicionar ao time</button><a class="botao secundario" href="editar-carta.html?carta=jokic" aria-label="Editar carta de Nikola Jokić">Editar</a><button type="button" disabled aria-label="Excluir carta de Nikola Jokić (indisponível nesta etapa)">Excluir</button></div>
+        </div>
+      </article>
+      <!-- CARTA 04: Luka Dončić — altere os dados neste article. -->
+      <article class="carta" id="carta-doncic">
+        <div class="carta-topo"><span>PG · Armador</span><strong>94 <small>GER</small></strong></div>
+        <!-- Foto real (quando o arquivo existir): src="../assets/img/doncic.jpg" alt="Luka Dončić no NBA 2K22" -->
+        <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20640%20360'%20width='640'%20height='360'%3E%3Crect%20width='640'%20height='360'%20fill='%23101826'/%3E%3Cg%20fill='none'%20stroke='%23ff7a1a'%20stroke-width='6'%3E%3Ccircle%20cx='320'%20cy='140'%20r='70'/%3E%3Cpath%20d='M250%20140h140M320%2070v140M270%2091q50%2049%200%2098M370%2091q-50%2049%200%2098'/%3E%3C/g%3E%3Ctext%20x='320'%20y='282'%20fill='%23ffffff'%20font-family='Arial,sans-serif'%20font-size='34'%20font-weight='700'%20text-anchor='middle'%3ELuka%20Don%C4%8Di%C4%87%3C/text%3E%3Ctext%20x='320'%20y='320'%20fill='%239aa6b8'%20font-family='Arial,sans-serif'%20font-size='18'%20text-anchor='middle'%3EIMAGEM%20PROVIS%C3%93RIA%3C/text%3E%3C/svg%3E" alt="Imagem provisória da carta de Luka Dončić" width="640" height="360" loading="lazy">
+        <div class="carta-corpo"><p class="numero">COLEÇÃO 01 / CARTA 04</p><h3>Luka Dončić</h3><p class="clube">Dallas Mavericks</p>
+          <dl class="stats"><div><dt>ARREMESSO</dt><dd>92</dd></div><div><dt>DEFESA</dt><dd>74</dd></div><div><dt>PASSE</dt><dd>96</dd></div><div><dt>VELOCIDADE</dt><dd>82</dd></div></dl>
+          <a class="link-detalhe" href="detalhes.html#doncic">Ver detalhes <span aria-hidden="true">↗</span></a>
+          <div class="acoes"><button type="button" disabled>Adicionar ao time</button><a class="botao secundario" href="editar-carta.html?carta=doncic" aria-label="Editar carta de Luka Dončić">Editar</a><button type="button" disabled aria-label="Excluir carta de Luka Dončić (indisponível nesta etapa)">Excluir</button></div>
+        </div>
+      </article>
+      <!-- CARTA 05: Damian Lillard — altere os dados neste article. -->
+      <article class="carta" id="carta-lillard">
+        <div class="carta-topo"><span>PG · Armador</span><strong>94 <small>GER</small></strong></div>
+        <!-- Foto real (quando o arquivo existir): src="../assets/img/lillard.jpg" alt="Damian Lillard no NBA 2K22" -->
+        <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20640%20360'%20width='640'%20height='360'%3E%3Crect%20width='640'%20height='360'%20fill='%23101826'/%3E%3Cg%20fill='none'%20stroke='%23ff7a1a'%20stroke-width='6'%3E%3Ccircle%20cx='320'%20cy='140'%20r='70'/%3E%3Cpath%20d='M250%20140h140M320%2070v140M270%2091q50%2049%200%2098M370%2091q-50%2049%200%2098'/%3E%3C/g%3E%3Ctext%20x='320'%20y='282'%20fill='%23ffffff'%20font-family='Arial,sans-serif'%20font-size='34'%20font-weight='700'%20text-anchor='middle'%3EDamian%20Lillard%3C/text%3E%3Ctext%20x='320'%20y='320'%20fill='%239aa6b8'%20font-family='Arial,sans-serif'%20font-size='18'%20text-anchor='middle'%3EIMAGEM%20PROVIS%C3%93RIA%3C/text%3E%3C/svg%3E" alt="Imagem provisória da carta de Damian Lillard" width="640" height="360" loading="lazy">
+        <div class="carta-corpo"><p class="numero">COLEÇÃO 01 / CARTA 05</p><h3>Damian Lillard</h3><p class="clube">Portland Trail Blazers</p>
+          <dl class="stats"><div><dt>ARREMESSO</dt><dd>96</dd></div><div><dt>DEFESA</dt><dd>70</dd></div><div><dt>PASSE</dt><dd>88</dd></div><div><dt>VELOCIDADE</dt><dd>93</dd></div></dl>
+          <a class="link-detalhe" href="detalhes.html#lillard">Ver detalhes <span aria-hidden="true">↗</span></a>
+          <div class="acoes"><button type="button" disabled>Adicionar ao time</button><a class="botao secundario" href="editar-carta.html?carta=lillard" aria-label="Editar carta de Damian Lillard">Editar</a><button type="button" disabled aria-label="Excluir carta de Damian Lillard (indisponível nesta etapa)">Excluir</button></div>
+        </div>
+      </article>
+      <!-- CARTA 06: Jayson Tatum — altere os dados neste article. -->
+      <article class="carta" id="carta-tatum">
+        <div class="carta-topo"><span>SF · Ala</span><strong>90 <small>GER</small></strong></div>
+        <!-- Foto real (quando o arquivo existir): src="../assets/img/tatum.jpg" alt="Jayson Tatum no NBA 2K22" -->
+        <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20640%20360'%20width='640'%20height='360'%3E%3Crect%20width='640'%20height='360'%20fill='%23101826'/%3E%3Cg%20fill='none'%20stroke='%23ff7a1a'%20stroke-width='6'%3E%3Ccircle%20cx='320'%20cy='140'%20r='70'/%3E%3Cpath%20d='M250%20140h140M320%2070v140M270%2091q50%2049%200%2098M370%2091q-50%2049%200%2098'/%3E%3C/g%3E%3Ctext%20x='320'%20y='282'%20fill='%23ffffff'%20font-family='Arial,sans-serif'%20font-size='34'%20font-weight='700'%20text-anchor='middle'%3EJayson%20Tatum%3C/text%3E%3Ctext%20x='320'%20y='320'%20fill='%239aa6b8'%20font-family='Arial,sans-serif'%20font-size='18'%20text-anchor='middle'%3EIMAGEM%20PROVIS%C3%93RIA%3C/text%3E%3C/svg%3E" alt="Imagem provisória da carta de Jayson Tatum" width="640" height="360" loading="lazy">
+        <div class="carta-corpo"><p class="numero">COLEÇÃO 01 / CARTA 06</p><h3>Jayson Tatum</h3><p class="clube">Boston Celtics</p>
+          <dl class="stats"><div><dt>ARREMESSO</dt><dd>90</dd></div><div><dt>DEFESA</dt><dd>86</dd></div><div><dt>PASSE</dt><dd>80</dd></div><div><dt>VELOCIDADE</dt><dd>86</dd></div></dl>
+          <a class="link-detalhe" href="detalhes.html#tatum">Ver detalhes <span aria-hidden="true">↗</span></a>
+          <div class="acoes"><button type="button" disabled>Adicionar ao time</button><a class="botao secundario" href="editar-carta.html?carta=tatum" aria-label="Editar carta de Jayson Tatum">Editar</a><button type="button" disabled aria-label="Excluir carta de Jayson Tatum (indisponível nesta etapa)">Excluir</button></div>
+        </div>
+      </article>
+      <!-- CARTA 07: Zion Williamson — altere os dados neste article. -->
+      <article class="carta" id="carta-zion">
+        <div class="carta-topo"><span>PF · Ala-pivô</span><strong>89 <small>GER</small></strong></div>
+        <!-- Foto real (quando o arquivo existir): src="../assets/img/zion.jpg" alt="Zion Williamson no NBA 2K22" -->
+        <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20640%20360'%20width='640'%20height='360'%3E%3Crect%20width='640'%20height='360'%20fill='%23101826'/%3E%3Cg%20fill='none'%20stroke='%23ff7a1a'%20stroke-width='6'%3E%3Ccircle%20cx='320'%20cy='140'%20r='70'/%3E%3Cpath%20d='M250%20140h140M320%2070v140M270%2091q50%2049%200%2098M370%2091q-50%2049%200%2098'/%3E%3C/g%3E%3Ctext%20x='320'%20y='282'%20fill='%23ffffff'%20font-family='Arial,sans-serif'%20font-size='34'%20font-weight='700'%20text-anchor='middle'%3EZion%20Williamson%3C/text%3E%3Ctext%20x='320'%20y='320'%20fill='%239aa6b8'%20font-family='Arial,sans-serif'%20font-size='18'%20text-anchor='middle'%3EIMAGEM%20PROVIS%C3%93RIA%3C/text%3E%3C/svg%3E" alt="Imagem provisória da carta de Zion Williamson" width="640" height="360" loading="lazy">
+        <div class="carta-corpo"><p class="numero">COLEÇÃO 01 / CARTA 07</p><h3>Zion Williamson</h3><p class="clube">New Orleans Pelicans</p>
+          <dl class="stats"><div><dt>ARREMESSO</dt><dd>80</dd></div><div><dt>DEFESA</dt><dd>79</dd></div><div><dt>PASSE</dt><dd>74</dd></div><div><dt>VELOCIDADE</dt><dd>90</dd></div></dl>
+          <a class="link-detalhe" href="detalhes.html#zion">Ver detalhes <span aria-hidden="true">↗</span></a>
+          <div class="acoes"><button type="button" disabled>Adicionar ao time</button><a class="botao secundario" href="editar-carta.html?carta=zion" aria-label="Editar carta de Zion Williamson">Editar</a><button type="button" disabled aria-label="Excluir carta de Zion Williamson (indisponível nesta etapa)">Excluir</button></div>
+        </div>
+      </article>
+      <!-- CARTA 08: Trae Young — altere os dados neste article. -->
+      <article class="carta" id="carta-trae">
+        <div class="carta-topo"><span>PG · Armador</span><strong>89 <small>GER</small></strong></div>
+        <!-- Foto real (quando o arquivo existir): src="../assets/img/trae.jpg" alt="Trae Young no NBA 2K22" -->
+        <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20640%20360'%20width='640'%20height='360'%3E%3Crect%20width='640'%20height='360'%20fill='%23101826'/%3E%3Cg%20fill='none'%20stroke='%23ff7a1a'%20stroke-width='6'%3E%3Ccircle%20cx='320'%20cy='140'%20r='70'/%3E%3Cpath%20d='M250%20140h140M320%2070v140M270%2091q50%2049%200%2098M370%2091q-50%2049%200%2098'/%3E%3C/g%3E%3Ctext%20x='320'%20y='282'%20fill='%23ffffff'%20font-family='Arial,sans-serif'%20font-size='34'%20font-weight='700'%20text-anchor='middle'%3ETrae%20Young%3C/text%3E%3Ctext%20x='320'%20y='320'%20fill='%239aa6b8'%20font-family='Arial,sans-serif'%20font-size='18'%20text-anchor='middle'%3EIMAGEM%20PROVIS%C3%93RIA%3C/text%3E%3C/svg%3E" alt="Imagem provisória da carta de Trae Young" width="640" height="360" loading="lazy">
+        <div class="carta-corpo"><p class="numero">COLEÇÃO 01 / CARTA 08</p><h3>Trae Young</h3><p class="clube">Atlanta Hawks</p>
+          <dl class="stats"><div><dt>ARREMESSO</dt><dd>93</dd></div><div><dt>DEFESA</dt><dd>60</dd></div><div><dt>PASSE</dt><dd>94</dd></div><div><dt>VELOCIDADE</dt><dd>90</dd></div></dl>
+          <a class="link-detalhe" href="detalhes.html#trae">Ver detalhes <span aria-hidden="true">↗</span></a>
+          <div class="acoes"><button type="button" disabled>Adicionar ao time</button><a class="botao secundario" href="editar-carta.html?carta=trae" aria-label="Editar carta de Trae Young">Editar</a><button type="button" disabled aria-label="Excluir carta de Trae Young (indisponível nesta etapa)">Excluir</button></div>
+        </div>
+      </article>
+      <!-- CARTA 09: DeMar DeRozan — altere os dados neste article. -->
+      <article class="carta" id="carta-derozan">
+        <div class="carta-topo"><span>SG · Ala-armador</span><strong>88 <small>GER</small></strong></div>
+        <!-- Foto real (quando o arquivo existir): src="../assets/img/derozan.jpg" alt="DeMar DeRozan no NBA 2K22" -->
+        <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20640%20360'%20width='640'%20height='360'%3E%3Crect%20width='640'%20height='360'%20fill='%23101826'/%3E%3Cg%20fill='none'%20stroke='%23ff7a1a'%20stroke-width='6'%3E%3Ccircle%20cx='320'%20cy='140'%20r='70'/%3E%3Cpath%20d='M250%20140h140M320%2070v140M270%2091q50%2049%200%2098M370%2091q-50%2049%200%2098'/%3E%3C/g%3E%3Ctext%20x='320'%20y='282'%20fill='%23ffffff'%20font-family='Arial,sans-serif'%20font-size='34'%20font-weight='700'%20text-anchor='middle'%3EDeMar%20DeRozan%3C/text%3E%3Ctext%20x='320'%20y='320'%20fill='%239aa6b8'%20font-family='Arial,sans-serif'%20font-size='18'%20text-anchor='middle'%3EIMAGEM%20PROVIS%C3%93RIA%3C/text%3E%3C/svg%3E" alt="Imagem provisória da carta de DeMar DeRozan" width="640" height="360" loading="lazy">
+        <div class="carta-corpo"><p class="numero">COLEÇÃO 01 / CARTA 09</p><h3>DeMar DeRozan</h3><p class="clube">Chicago Bulls</p>
+          <dl class="stats"><div><dt>ARREMESSO</dt><dd>90</dd></div><div><dt>DEFESA</dt><dd>73</dd></div><div><dt>PASSE</dt><dd>82</dd></div><div><dt>VELOCIDADE</dt><dd>85</dd></div></dl>
+          <a class="link-detalhe" href="detalhes.html#derozan">Ver detalhes <span aria-hidden="true">↗</span></a>
+          <div class="acoes"><button type="button" disabled>Adicionar ao time</button><a class="botao secundario" href="editar-carta.html?carta=derozan" aria-label="Editar carta de DeMar DeRozan">Editar</a><button type="button" disabled aria-label="Excluir carta de DeMar DeRozan (indisponível nesta etapa)">Excluir</button></div>
+        </div>
+      </article>
+      <!-- CARTA 10: Lonzo Ball — altere os dados neste article. -->
+      <article class="carta" id="carta-lonzo">
+        <div class="carta-topo"><span>PG · Armador</span><strong>82 <small>GER</small></strong></div>
+        <!-- Foto real (quando o arquivo existir): src="../assets/img/lonzo.jpg" alt="Lonzo Ball no NBA 2K22" -->
+        <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20640%20360'%20width='640'%20height='360'%3E%3Crect%20width='640'%20height='360'%20fill='%23101826'/%3E%3Cg%20fill='none'%20stroke='%23ff7a1a'%20stroke-width='6'%3E%3Ccircle%20cx='320'%20cy='140'%20r='70'/%3E%3Cpath%20d='M250%20140h140M320%2070v140M270%2091q50%2049%200%2098M370%2091q-50%2049%200%2098'/%3E%3C/g%3E%3Ctext%20x='320'%20y='282'%20fill='%23ffffff'%20font-family='Arial,sans-serif'%20font-size='34'%20font-weight='700'%20text-anchor='middle'%3ELonzo%20Ball%3C/text%3E%3Ctext%20x='320'%20y='320'%20fill='%239aa6b8'%20font-family='Arial,sans-serif'%20font-size='18'%20text-anchor='middle'%3EIMAGEM%20PROVIS%C3%93RIA%3C/text%3E%3C/svg%3E" alt="Imagem provisória da carta de Lonzo Ball" width="640" height="360" loading="lazy">
+        <div class="carta-corpo"><p class="numero">COLEÇÃO 01 / CARTA 10</p><h3>Lonzo Ball</h3><p class="clube">Chicago Bulls</p>
+          <dl class="stats"><div><dt>ARREMESSO</dt><dd>79</dd></div><div><dt>DEFESA</dt><dd>86</dd></div><div><dt>PASSE</dt><dd>89</dd></div><div><dt>VELOCIDADE</dt><dd>86</dd></div></dl>
+          <a class="link-detalhe" href="detalhes.html#lonzo">Ver detalhes <span aria-hidden="true">↗</span></a>
+          <div class="acoes"><button type="button" disabled>Adicionar ao time</button><a class="botao secundario" href="editar-carta.html?carta=lonzo" aria-label="Editar carta de Lonzo Ball">Editar</a><button type="button" disabled aria-label="Excluir carta de Lonzo Ball (indisponível nesta etapa)">Excluir</button></div>
+        </div>
+      </article>
+      <!-- CARTA 11: Russell Westbrook — altere os dados neste article. -->
+      <article class="carta" id="carta-westbrook">
+        <div class="carta-topo"><span>PG · Armador</span><strong>86 <small>GER</small></strong></div>
+        <!-- Foto real (quando o arquivo existir): src="../assets/img/westbrook.jpg" alt="Russell Westbrook no NBA 2K22" -->
+        <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20640%20360'%20width='640'%20height='360'%3E%3Crect%20width='640'%20height='360'%20fill='%23101826'/%3E%3Cg%20fill='none'%20stroke='%23ff7a1a'%20stroke-width='6'%3E%3Ccircle%20cx='320'%20cy='140'%20r='70'/%3E%3Cpath%20d='M250%20140h140M320%2070v140M270%2091q50%2049%200%2098M370%2091q-50%2049%200%2098'/%3E%3C/g%3E%3Ctext%20x='320'%20y='282'%20fill='%23ffffff'%20font-family='Arial,sans-serif'%20font-size='34'%20font-weight='700'%20text-anchor='middle'%3ERussell%20Westbrook%3C/text%3E%3Ctext%20x='320'%20y='320'%20fill='%239aa6b8'%20font-family='Arial,sans-serif'%20font-size='18'%20text-anchor='middle'%3EIMAGEM%20PROVIS%C3%93RIA%3C/text%3E%3C/svg%3E" alt="Imagem provisória da carta de Russell Westbrook" width="640" height="360" loading="lazy">
+        <div class="carta-corpo"><p class="numero">COLEÇÃO 01 / CARTA 11</p><h3>Russell Westbrook</h3><p class="clube">Los Angeles Lakers</p>
+          <dl class="stats"><div><dt>ARREMESSO</dt><dd>78</dd></div><div><dt>DEFESA</dt><dd>76</dd></div><div><dt>PASSE</dt><dd>88</dd></div><div><dt>VELOCIDADE</dt><dd>96</dd></div></dl>
+          <a class="link-detalhe" href="detalhes.html#westbrook">Ver detalhes <span aria-hidden="true">↗</span></a>
+          <div class="acoes"><button type="button" disabled>Adicionar ao time</button><a class="botao secundario" href="editar-carta.html?carta=westbrook" aria-label="Editar carta de Russell Westbrook">Editar</a><button type="button" disabled aria-label="Excluir carta de Russell Westbrook (indisponível nesta etapa)">Excluir</button></div>
+        </div>
+      </article>
+      <!-- CARTA 12: Steven Adams — altere os dados neste article. -->
+      <article class="carta" id="carta-adams">
+        <div class="carta-topo"><span>C · Pivô</span><strong>79 <small>GER</small></strong></div>
+        <!-- Foto real (quando o arquivo existir): src="../assets/img/adams.jpg" alt="Steven Adams no NBA 2K22" -->
+        <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20640%20360'%20width='640'%20height='360'%3E%3Crect%20width='640'%20height='360'%20fill='%23101826'/%3E%3Cg%20fill='none'%20stroke='%23ff7a1a'%20stroke-width='6'%3E%3Ccircle%20cx='320'%20cy='140'%20r='70'/%3E%3Cpath%20d='M250%20140h140M320%2070v140M270%2091q50%2049%200%2098M370%2091q-50%2049%200%2098'/%3E%3C/g%3E%3Ctext%20x='320'%20y='282'%20fill='%23ffffff'%20font-family='Arial,sans-serif'%20font-size='34'%20font-weight='700'%20text-anchor='middle'%3ESteven%20Adams%3C/text%3E%3Ctext%20x='320'%20y='320'%20fill='%239aa6b8'%20font-family='Arial,sans-serif'%20font-size='18'%20text-anchor='middle'%3EIMAGEM%20PROVIS%C3%93RIA%3C/text%3E%3C/svg%3E" alt="Imagem provisória da carta de Steven Adams" width="640" height="360" loading="lazy">
+        <div class="carta-corpo"><p class="numero">COLEÇÃO 01 / CARTA 12</p><h3>Steven Adams</h3><p class="clube">Memphis Grizzlies</p>
+          <dl class="stats"><div><dt>ARREMESSO</dt><dd>62</dd></div><div><dt>DEFESA</dt><dd>88</dd></div><div><dt>PASSE</dt><dd>60</dd></div><div><dt>VELOCIDADE</dt><dd>58</dd></div></dl>
+          <a class="link-detalhe" href="detalhes.html#adams">Ver detalhes <span aria-hidden="true">↗</span></a>
+          <div class="acoes"><button type="button" disabled>Adicionar ao time</button><a class="botao secundario" href="editar-carta.html?carta=adams" aria-label="Editar carta de Steven Adams">Editar</a><button type="button" disabled aria-label="Excluir carta de Steven Adams (indisponível nesta etapa)">Excluir</button></div>
+        </div>
+      </article>
+      </div>
+    </section>
+  </main>
+  <!-- BLOCO: RODAPE -->
+  <footer class="rodape"><div class="container barra">
+    <p><strong>NBA ARISE</strong><br>Projeto acadêmico • Etapa 1 — HTML</p>
+    <p>Imagens de NBA 2K22. Atributos didáticos fictícios.<br><a href="creditos.html">Créditos e fontes</a></p>
+  </div></footer>
+</body>
+</html>
