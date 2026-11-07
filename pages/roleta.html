@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NBA ARISE: coleção acadêmica de cartas de basquete inspirada em TCG e NBA 2K.">
+  <title>Roleta NBA | NBA ARISE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="../assets/js/usuarios.js" defer></script>
+  <script src="../assets/js/jogadores.js" defer></script>
+  <script src="../assets/js/cartas.js" defer></script>
+  <script src="../assets/js/roleta.js" defer></script>
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <!-- BLOCO: CABECALHO — identificação e navegação entre as páginas. -->
+  <header class="cabecalho">
+    <div class="container barra">
+      <a class="marca" href="../index.html"><span class="bola" aria-hidden="true">◉</span> NBA <span>ARISE</span></a>
+      <nav aria-label="Navegação principal"><a href="../index.html">Início</a><a href="catalogo.html">Catálogo</a><a href="meutime.html">Meu time</a><a href="cadastro-carta.html">Nova carta</a><a href="roleta.html" aria-current="page">Roleta NBA</a><a id="nav-login" href="login.html">Entrar / Cadastrar</a></nav>
+    </div>
+  </header>
+  <main id="conteudo" class="container">
+<header class="titulo-pagina"><p class="sobretitulo">SORTEIO DE CARTAS</p><h1>Roleta NBA</h1><p>Gire a roleta e descubra qual carta da coleção você tira.</p></header>
+    <!-- BLOCO: ROLETA — a roda é desenhada pelo roleta.js a partir de assets/js/jogadores.js. -->
+    <div class="roleta-layout">
+      <section class="painel" aria-labelledby="titulo-roda"><h2 id="titulo-roda">A roleta</h2>
+        <div class="roda-caixa">
+          <div class="ponteiro" aria-hidden="true"></div>
+          <div class="roda-giro" id="roda-giro"><svg id="roda" viewBox="0 0 400 400" role="img" aria-label="Roleta com os jogadores da coleção"></svg></div>
+        </div>
+        <div class="botoes"><button type="button" id="girar">GIRAR ROLETA</button><button type="button" id="novamente" class="secundario" hidden>Sortear novamente</button></div>
+        <p id="roleta-msg" class="msg" role="status" aria-live="polite"></p>
+      </section>
+      <section aria-labelledby="titulo-resultado"><h2 id="titulo-resultado">Jogador sorteado</h2>
+        <div id="carta-sorteada"><p class="ajuda">Nenhuma carta sorteada ainda. Clique em GIRAR ROLETA.</p></div>
+      </section>
+    </div>
+    <section class="painel" aria-labelledby="titulo-historico"><h2 id="titulo-historico">Últimos sorteios</h2>
+      <ol id="historico" class="historico"><li class="ajuda">Ainda não há sorteios.</li></ol>
+    </section>
+    <aside class="aviso"><strong>Sobre os dados</strong><p>A roleta usa todas as cartas do catálogo: os 12 jogadores fixos (<code>assets/js/jogadores.js</code>) e as cartas que você criar em <a href="cadastro-carta.html">Nova carta</a>. Os atributos são ilustrativos e as imagens são provisórias.</p></aside>
+    <noscript><p class="msg erro">Ative o JavaScript para usar a roleta.</p></noscript>
+  </main>
+  <!-- BLOCO: RODAPE -->
+  <footer class="rodape"><div class="container barra">
+    <p><strong>NBA ARISE</strong><br>Projeto acadêmico • Etapa 1 — HTML</p>
+    <p>Imagens de NBA 2K22. Atributos didáticos fictícios.<br><a href="creditos.html">Créditos e fontes</a></p>
+  </div></footer>
+</body>
+</html>
