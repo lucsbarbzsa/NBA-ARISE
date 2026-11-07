@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NBA ARISE: coleção acadêmica de cartas de basquete inspirada em TCG e NBA 2K.">
+  <title>Editar carta | NBA ARISE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="../assets/js/usuarios.js" defer></script>
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <!-- BLOCO: CABECALHO — identificação e navegação entre as páginas. -->
+  <header class="cabecalho">
+    <div class="container barra">
+      <a class="marca" href="../index.html"><span class="bola" aria-hidden="true">◉</span> NBA <span>ARISE</span></a>
+      <nav aria-label="Navegação principal"><a href="../index.html">Início</a><a href="catalogo.html" aria-current="page">Catálogo</a><a href="meutime.html">Meu time</a><a href="cadastro-carta.html">Nova carta</a><a href="roleta.html">Roleta NBA</a><a id="nav-login" href="login.html">Entrar / Cadastrar</a></nav>
+    </div>
+  </header>
+  <main id="conteudo" class="container">
+<header class="titulo-pagina"><p class="sobretitulo">GERENCIAR COLEÇÃO</p><h1>Editar carta</h1><p>Altere os dados de uma carta já existente na coleção.</p></header>
+    <aside class="aviso"><strong>Página de exemplo</strong><p>Nesta etapa a edição é só visual: o formulário mostra sempre os dados de exemplo de Stephen Curry, não carrega a carta escolhida no catálogo e não salva nada.</p></aside>
+    <!-- BLOCO: EDITAR-CARTA — mesmo formulário do cadastro, já preenchido com uma carta de exemplo. -->
+    <section class="painel formulario-carta" aria-labelledby="dados-edicao"><h2 id="dados-edicao">Dados da carta: Stephen Curry</h2>
+      <p class="ajuda" id="aviso-carta">Todos os campos, exceto a imagem e a descrição, são obrigatórios. A imagem atual é provisória; escolha um arquivo somente se quiser trocá-la.</p>
+      <form aria-describedby="aviso-carta">
+        <fieldset><legend>Identificação</legend><div class="duas-colunas">
+          <div><label for="jogador">Nome do jogador</label><input id="jogador" name="jogador" type="text" maxlength="80" value="Stephen Curry" required></div>
+          <div><label for="equipe">Equipe ou franquia</label><input id="equipe" name="equipe" type="text" maxlength="80" value="Golden State Warriors" required></div>
+          <div><label for="posicao-carta">Posição em quadra</label><select id="posicao-carta" name="posicao" required><option value="">Selecione</option><option value="PG" selected>Armador (PG)</option><option value="SG">Ala-armador (SG)</option><option value="SF">Ala (SF)</option><option value="PF">Ala-pivô (PF)</option><option value="C">Pivô (C)</option></select></div>
+          <div><label for="numero-carta">Número da carta na coleção</label><input id="numero-carta" name="numero-carta" type="number" min="1" max="999" value="1" required></div>
+          <div><label for="raridade">Raridade</label><select id="raridade" name="raridade" required><option value="">Selecione</option><option>Comum</option><option>Rara</option><option selected>Lendária</option></select></div>
+        </div></fieldset>
+        <fieldset><legend>Atributos (0 a 99)</legend><div class="campos-stats"><div><label for="geral">Overall (GER)</label><input id="geral" name="geral" type="number" min="0" max="99" value="96" required></div><div><label for="arremesso">Arremesso</label><input id="arremesso" name="arremesso" type="number" min="0" max="99" value="99" required></div><div><label for="defesa">Defesa</label><input id="defesa" name="defesa" type="number" min="0" max="99" value="72" required></div><div><label for="passe">Passe</label><input id="passe" name="passe" type="number" min="0" max="99" value="94" required></div><div><label for="velocidade">Velocidade</label><input id="velocidade" name="velocidade" type="number" min="0" max="99" value="91" required></div></div></fieldset>
+        <label for="imagem">Imagem da carta (opcional)</label><input id="imagem" name="imagem" type="file" accept="image/jpeg,image/png,image/webp">
+        <label for="descricao">Descrição do estilo de jogo (opcional)</label><textarea id="descricao" name="descricao" rows="4" maxlength="500" placeholder="Descreva os pontos fortes do jogador.">Um dos maiores arremessadores de longa distância da história; mantém o ataque em movimento mesmo sem a bola.</textarea>
+        <div class="botoes"><button type="button" disabled>Salvar alterações — em breve</button><button type="reset" class="secundario">Restaurar valores</button><a href="catalogo.html">Cancelar</a></div>
+      </form>
+    </section>
+    <!-- BLOCO: EXCLUIR-CARTA — controle ilustrativo, sem exclusão real. -->
+    <section class="painel" aria-labelledby="excluir"><h2 id="excluir">Excluir carta</h2>
+      <p class="ajuda" id="aviso-excluir">A exclusão ainda não existe nesta etapa: o botão abaixo apenas mostra onde ela ficará e nenhuma carta é removida.</p>
+      <button type="button" disabled aria-describedby="aviso-excluir">Excluir carta de Stephen Curry</button>
+    </section>
+    <p><a href="detalhes.html#curry">← Ver detalhes da carta</a> · <a href="catalogo.html#carta-curry">Voltar ao catálogo</a></p>
+  </main>
+  <!-- BLOCO: RODAPE -->
+  <footer class="rodape"><div class="container barra">
+    <p><strong>NBA ARISE</strong><br>Projeto acadêmico • Etapa 1 — HTML</p>
+    <p>Imagens de NBA 2K22. Atributos didáticos fictícios.<br><a href="creditos.html">Créditos e fontes</a></p>
+  </div></footer>
+</body>
+</html>
