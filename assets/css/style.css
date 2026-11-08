@@ -1,3 +1,13 @@
+/* ==========================================================================
+   NBA ARISE — estilo (tema escuro com verde)
+   Ideia: visual de cartão esportivo/editorial. Fundo chapado, linhas finas,
+   cantos quase retos, tipografia condensada. O verde aparece só como acento
+   (página atual, overall, botão principal, foco).
+   Organização: 1 variáveis · 2 base · 3 cabeçalho · 4 páginas · 5 cartas
+                6 botões · 7 formulários · 8 tabela · 9 rodapé · 10 responsivo
+   ========================================================================== */
+
+/* 1. VARIÁVEIS — mude as cores aqui e o site todo acompanha */
 :root {
   --fundo: #050705;
   --fundo-2: #0b100d;
@@ -45,7 +55,7 @@ em { font-style: normal; color: var(--neon); }
 .marca:hover { color: var(--texto); }
 .marca span:not(.bola) { background: var(--neon); color: var(--fundo); padding: .12rem .4rem .05rem; }
 .bola { display: none; }
-.cabecalho nav { display: flex; flex-wrap: wrap; gap: 0 1.6rem; }
+.cabecalho nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0 1.35rem; }
 .cabecalho nav a { font-family: var(--titulo); font-weight: 600; font-size: 1.15rem; letter-spacing: .04em; text-transform: uppercase; text-decoration: none; color: var(--texto-2); padding: 1.15rem 0 1rem; border-bottom: 3px solid transparent; transition: color .15s, border-color .15s; }
 .cabecalho nav a:hover { color: var(--texto); border-bottom-color: var(--borda-forte); }
 .cabecalho nav a[aria-current="page"] { color: var(--texto); border-bottom-color: var(--neon); }
@@ -183,6 +193,44 @@ td button { padding: .3rem .8rem; font-size: .95rem; }
 .rodape strong { font-family: var(--titulo); font-size: 1.2rem; letter-spacing: .06em; color: var(--texto); }
 .rodape p:last-child { text-align: right; }
 
+/* 9b. MENSAGENS, SESSÃO E ROLETA */
+[hidden] { display: none !important; }
+.msg { margin: .9rem 0 0; padding: .6rem .9rem; border-left: 3px solid var(--borda-forte); background: var(--fundo-2); color: var(--texto-2); font-size: .95rem; }
+.msg:empty { display: none; }
+.msg.ok { border-left-color: var(--neon); color: var(--neon-claro); }
+.msg.erro { border-left-color: #ff6b6b; color: #ffb3b3; }
+/* botão "Sair" do cabeçalho: parece um link do menu */
+.cabecalho nav button.sair { font-family: var(--titulo); font-weight: 600; font-size: 1.15rem; letter-spacing: .04em; text-transform: uppercase; background: transparent; color: var(--texto-2); border: 0; border-bottom: 3px solid transparent; border-radius: 0; padding: 1.15rem 0 1rem; }
+.cabecalho nav button.sair:hover { background: transparent; color: var(--texto); border-bottom-color: var(--borda-forte); }
+
+.roleta-layout { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 1.75rem; align-items: start; }
+.roleta-layout .painel { margin-block: 0; }
+.roda-caixa { position: relative; isolation: isolate; width: min(100%, 430px); margin: 1.2rem auto .4rem; }
+.ponteiro { position: absolute; top: -4px; left: 50%; margin-left: -14px; z-index: 3; width: 28px; height: 30px; color: var(--neon); pointer-events: none; }
+/* a roda gira como um quadrado: sem pointer-events para os cantos não cobrirem os botões */
+.roda-giro { transition: transform 5.5s cubic-bezier(.12, .6, .12, 1); pointer-events: none; }
+.roda-giro.girando { will-change: transform; }
+.roda-giro svg { display: block; width: 100%; height: auto; }
+.fatia { stroke: var(--borda-forte); stroke-width: 1.5; transition: fill .2s; }
+.fatia-a { fill: #151e17; }
+.fatia-b { fill: #0b100d; }
+.fatia-ganha { fill: var(--neon-escuro); }
+.fatia-nome { fill: var(--texto); font-family: var(--titulo); font-weight: 700; font-size: 17px; letter-spacing: .02em; text-transform: uppercase; pointer-events: none; }
+.roda-centro { fill: var(--fundo); stroke: var(--neon); stroke-width: 4; }
+.roleta-layout .botoes { justify-content: center; }
+.roleta-resultado, #carta-sorteada { min-width: 0; }
+#carta-sorteada .carta { max-width: 380px; }
+.historico { margin: 0; padding-left: 1.4rem; color: var(--texto); }
+.historico li { padding: .2rem 0; }
+.historico li.ajuda { list-style: none; margin-left: -1.4rem; }
+@media (max-width: 900px) {
+  .roleta-layout { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .cabecalho nav button.sair { padding: .6rem 0 .5rem; font-size: 1.05rem; }
+  .fatia-nome { font-size: 15px; }
+}
+
 /* 10. RESPONSIVO */
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; }
@@ -202,4 +250,5 @@ td button { padding: .3rem .8rem; font-size: .95rem; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; }
+  .roda-giro { transition: none; }
 }
