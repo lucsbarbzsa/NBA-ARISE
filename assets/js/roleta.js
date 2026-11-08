@@ -3,12 +3,20 @@
    1) O sorteio é decidido ANTES (índice aleatório de verdade).
    2) A roda gira até o ponteiro (fixo no topo) parar na fatia sorteada.
    3) Só no fim da animação a carta é revelada.
-   Os jogadores vêm de assets/js/jogadores.js (window.JOGADORES).
+   Os jogadores sorteáveis vêm da mesma fonte do catálogo: a lista da API NBA 2K
+   (cache em NBAApi) + as cartas criadas em "Nova carta". Se a API estiver
+   indisponível e não houver cache, a roleta usa os 12 jogadores de DEMONSTRAÇÃO
+   de assets/js/jogadores.js. Quando há mais de 12 jogadores, cada giro monta uma
+   roda com 12 nomes escolhidos ao acaso e sorteia entre eles (todo jogador tem
+   a mesma chance de aparecer). A carta sorteada pode ser adicionada ao Meu time.
    ========================================================================== */
 (function () {
   'use strict';
 
-  var JOGADORES = [];   /* preenchido em iniciar(): cartas fixas + cartas criadas pelo usuário */
+  var FATIAS = 12;      /* nomes na roda a cada giro */
+  var POOL = [];        /* todos os jogadores sorteáveis (itens de carta, ver cartas.js) */
+  var JOGADORES = [];   /* os que estão na roda agora */
+  var porId = {};
   var CHAVE_HISTORICO = 'nbaarise_historico';
   var DURACAO_MS = 5500;      /* precisa ser igual ao "transition" de .roda-giro no CSS */
   var VOLTAS = 5;             /* voltas completas antes de parar */
@@ -68,30 +76,8 @@
     svg.appendChild(hub);
   }
 
-  /* ---------- carta sorteada (mesmas classes do catálogo) ---------- */
-  function esc(t) {
-    return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-  }
-  function imagemProvisoria(nome) {
-    var ini = nome.split(' ').slice(0, 2).map(function (p) { return p.charAt(0); }).join('').toUpperCase();
-    var svg = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360' width='640' height='360'>" +
-      "<rect width='640' height='360' fill='#141d16'/>" +
-      "<path d='M0 360L220 0h90L90 360zM260 360L480 0h90L350 360z' fill='#182319'/>" +
-      "<text x='320' y='235' fill='#223127' font-family='Arial Narrow,Arial,sans-serif' font-size='190' font-weight='700' text-anchor='middle'>" + esc(ini) + "</text>" +
-      "<text x='320' y='320' fill='#7d8a80' font-family='Arial,sans-serif' font-size='16' text-anchor='middle'>FOTO PENDENTE · " + esc(nome.toUpperCase()) + "</text></svg>";
-    return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
-  }
-  function cartaHtml(j) {
-    var num = ('0' + j.numero).slice(-2);
-    var im = window.NBACartas ? window.NBACartas.imagemDe(j) : { src: imagemProvisoria(j.nome), alt: 'Imagem provisória da carta de ' + j.nome };
-    return '<article class="carta carta-sorteada" id="carta-' + esc(j.id) + '">' +
-      '<div class="carta-topo"><span>' + esc(j.sigla) + ' · ' + esc(j.posicao) + '</span><strong>' + j.geral + ' <small>GER</small></strong></div>' +
-      '<img src="' + esc(im.src) + '" alt="' + esc(im.alt) + '" width="640" height="360">' +
-      '<div class="carta-corpo"><p class="numero">COLEÇÃO 01 / CARTA ' + num + '</p><h3>' + esc(j.nome) + '</h3><p class="clube">' + esc(j.equipe) + '</p>' +
-      '<dl class="stats"><div><dt>ARREMESSO</dt><dd>' + j.arremesso + '</dd></div><div><dt>DEFESA</dt><dd>' + j.defesa + '</dd></div>' +
-      '<div><dt>PASSE</dt><dd>' + j.passe + '</dd></div><div><dt>VELOCIDADE</dt><dd>' + j.velocidade + '</dd></div></dl>' +
-      '<a class="link-detalhe" href="detalhes.html#' + esc(j.id) + '">Ver detalhes <span aria-hidden="true">↗</span></a></div></article>';
-  }
+  /* ---------- carta sorteada (mesmo desenho do catálogo, com o botão "Adicionar ao time") ---------- */
+  function cartaHtml(j) { return window.NBACartas.cartaHtml(j, 'roleta'); }
 
   /* ---------- histórico ---------- */
   function lerHistorico() {
@@ -106,7 +92,7 @@
     if (!h.length) { ol.innerHTML = '<li class="ajuda">Ainda não há sorteios.</li>'; return; }
     h.forEach(function (item) {
       var li = document.createElement('li');
-      li.textContent = item.nome + ' — ' + item.sigla + ' · GER ' + item.geral;
+      li.textContent = item.nome + ' — ' + item.sigla + ' · GER ' + (item.geral === null || item.geral === undefined ? '—' : item.geral);
       ol.appendChild(li);
     });
   }
@@ -127,23 +113,34 @@
   function revelar(indice) {
     var j = JOGADORES[indice];
     $('carta-sorteada').innerHTML = cartaHtml(j);
+    window.NBACartas.atualizarBotoesTime($('carta-sorteada'));
     var fatias = document.querySelectorAll('#roda .fatia');
     for (var i = 0; i < fatias.length; i++) fatias[i].classList.toggle('fatia-ganha', i === indice);
     var h = lerHistorico();
-    h.unshift({ nome: j.nome, sigla: j.sigla, geral: j.geral });
+    h.unshift({ nome: j.nome, sigla: j.posicoes[0] || '—', geral: j.geral });
     guardarHistorico(h.slice(0, 5));
     mostrarHistorico();
     var msg = $('roleta-msg');
     msg.className = 'msg ok';
-    msg.textContent = 'Sorteado: ' + j.nome + ' (' + j.sigla + ', GER ' + j.geral + ').';
+    msg.textContent = 'Sorteado: ' + j.nome + ' (' + (j.posicoes[0] || '—') + ', GER ' + (j.geral === null ? '—' : j.geral) + '). Clique em "Adicionar ao time" para guardá-lo.';
     girando = false;
+    $('roda-giro').classList.remove('girando');
     $('girar').disabled = false;
     $('novamente').disabled = false;
     $('novamente').hidden = false;
   }
 
+  /* escolhe (sem repetir) até 12 jogadores do conjunto total para a roda deste giro */
+  function montarRoda() {
+    var copia = POOL.slice(), roda = [];
+    while (roda.length < FATIAS && copia.length) roda.push(copia.splice(sortearIndice(copia.length), 1)[0]);
+    JOGADORES = roda;
+    desenharRoda();
+  }
+
   function girar() {
-    if (girando || JOGADORES.length < 2) return;
+    if (girando || POOL.length < 2) return;
+    if (POOL.length > FATIAS || !JOGADORES.length) montarRoda();
     girando = true;
     $('girar').disabled = true;
     $('novamente').disabled = true;
@@ -158,6 +155,7 @@
     var base = Math.ceil(rotacao / 360) * 360;                  /* sempre gira para frente */
     var novaRotacao = base + VOLTAS * 360 + alvoNaVolta;
     var giro = $('roda-giro');
+    giro.classList.add('girando');
     var terminou = false;
 
     function fim() {
@@ -184,18 +182,34 @@
   /* ---------- início ---------- */
   function iniciar() {
     if (!$('roda')) return;
-    JOGADORES = window.NBACartas ? window.NBACartas.todas() : (window.JOGADORES || []);
     var msg = $('roleta-msg');
-    if (JOGADORES.length < 2) {
-      msg.className = 'msg erro';
-      msg.textContent = 'Adicione jogadores em assets/js/jogadores.js antes de realizar o sorteio.';
-      $('girar').disabled = true;
-      return;
-    }
-    desenharRoda();
-    mostrarHistorico();
+    $('girar').disabled = true;
     $('girar').addEventListener('click', girar);
     $('novamente').addEventListener('click', girar);
+    mostrarHistorico();
+    if (!window.NBACartas) { msg.className = 'msg erro'; msg.textContent = 'O arquivo assets/js/cartas.js não foi carregado.'; return; }
+    window.NBACartas.tratarFalhaDeImagem($('carta-sorteada'));
+    window.NBACartas.ligarBotoesTime($('carta-sorteada'), function (id) { return porId[id] || null; });
+    msg.className = 'msg'; msg.textContent = 'Carregando jogadores…';
+    window.NBACartas.itensParaRoleta().then(function (r) {
+      POOL = r.itens; porId = {};
+      POOL.forEach(function (i) { porId[i.id] = i; });
+      if (POOL.length < 2) {
+        msg.className = 'msg erro';
+        msg.textContent = 'São necessários pelo menos 2 jogadores para sortear. Abra o catálogo para carregar os jogadores ou crie cartas em "Nova carta".';
+        return;
+      }
+      montarRoda();
+      $('girar').disabled = false;
+      msg.className = r.demo ? 'msg erro' : 'msg';
+      msg.textContent = r.demo
+        ? 'A API não respondeu: a roleta está usando jogadores de DEMONSTRAÇÃO. Abra o catálogo e tente novamente mais tarde.'
+        : POOL.length + ' jogadores disponíveis para o sorteio. Clique em GIRAR ROLETA.';
+      if (document.fonts && document.fonts.ready) {
+        /* a fonte do site pode terminar de carregar depois do desenho: redesenha a roda sem perder o destaque */
+        document.fonts.ready.then(function () { if (!girando) { var g = document.querySelector('#roda .fatia-ganha'); var i = g ? g.getAttribute('data-indice') : null; desenharRoda(); if (i !== null) document.querySelectorAll('#roda .fatia')[i].classList.add('fatia-ganha'); } });
+      }
+    });
   }
 
   /* usado nos testes automáticos */
