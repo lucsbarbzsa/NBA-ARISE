@@ -9,7 +9,7 @@
       (Opcional: ORIGEM_PERMITIDA com o endereço do seu site, ex.: https://meusite.com)
    3. Em assets/js/config.js, troque baseUrl pelo endereço do Worker e deixe
       apiKey vazio.
-   O proxy só repassa GET /api/players... e guarda as respostas por 1 hora.
+   O proxy só repassa GET /api/players... (inclui /bulk e /slug) e /api/public/players, e guarda as respostas por 1 hora.
    ========================================================================== */
 export default {
   async fetch(request, env) {
@@ -23,10 +23,13 @@ export default {
     if (request.method !== 'GET') return new Response('Método não permitido', { status: 405, headers: cors });
 
     const url = new URL(request.url);
-    if (!url.pathname.startsWith('/api/players')) return new Response('Não encontrado', { status: 404, headers: cors });
+    const permitido = url.pathname.startsWith('/api/players') || url.pathname.startsWith('/api/public/players');
+    if (!permitido) return new Response('Não encontrado', { status: 404, headers: cors });
 
+    const cab = { 'Accept': 'application/json' };
+    if (env.NBA2K_API_KEY && !url.pathname.startsWith('/api/public/')) cab['X-API-Key'] = env.NBA2K_API_KEY;
     const resposta = await fetch('https://api.nba2kapi.com' + url.pathname + url.search, {
-      headers: { 'X-API-Key': env.NBA2K_API_KEY, 'Accept': 'application/json' },
+      headers: cab,
       cf: { cacheEverything: true, cacheTtl: 3600 }
     });
     const cabecalhos = new Headers(resposta.headers);
